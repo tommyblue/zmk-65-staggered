@@ -1,0 +1,6 @@
+if SHIELD_STAG68
+
+config ZMK_KEYBOARD_NAME
+    default "stag68"
+
+endif
