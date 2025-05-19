@@ -1,8 +1,0 @@
-file_format: "1"
-id: stag68
-name: stag68
-type: shield
-url: https://github.com/tommyblue/stag68
-requires: [nice_nano_v2]
-features:
-  - keys

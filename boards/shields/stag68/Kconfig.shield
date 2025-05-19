@@ -1,2 +1,0 @@
-config SHIELD_STAG68
-    def_bool $(shields_list_contains,stag68)
