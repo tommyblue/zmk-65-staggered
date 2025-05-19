@@ -1,8 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    kscan0: kscan {
+    kscan1: kscan {
         compatible = "zmk,kscan-gpio-matrix";
+        label = "ksan1";
 
         row-gpios = <&gpio0 6   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
                     <&gpio0 17  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
@@ -32,7 +33,7 @@
         debounce-release-ms = <5>;
     };
 
-    deftrans: matrix_transform {
+    default_transform1: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <15>;
         rows = <5>;
@@ -45,16 +46,21 @@
         >;
     };
 
-    phys_0: physical_layout_0 { // First physical layout, use different naming for other layouts
+    //&physical_layout0 {
+    //     //kscan = <&kscan0>; // Label of the kscan node this layout uses
+    //    transform = <&default_transform1>; // Label of the matrix transform this layout uses
+    //};
+
+    physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
         compatible = "zmk,physical-layout";
-        display-name = "base";
-        kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
-        transform = <&deftrans>; // Label of the matrix transform for this layout
+        display-name = "Default layout";
+        kscan = <&kscan1>; // Label of the kscan node, optional if all layouts use the same
+        transform = <&default_transform1>; // Label of the matrix transform for this layout
     };
 
     chosen {
-        zmk,physical-layout = &phys_0;
-        // zmk,kscan = &kscan0;
-        // zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
+        zmk,kscan = &kscan1;
+        zmk,matrix-transform = &default_transform1;
     };
 };
