@@ -20,4 +20,4 @@
 ---
 include:
   - board: nice_nano
-    shield: stag68
+    shield: chalice
