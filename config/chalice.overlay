@@ -1,54 +1,31 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    kscan1: kscan {
+    kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
-        label = "ksan1";
 
-        // row-gpios = <&gpio0 6   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 17  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 8   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 20  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 22  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 24  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 0   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 11  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 4   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 6   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 1   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 2   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio1 7   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 9   (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-        //             <&gpio0 10  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-
-        row-gpios = <&gpio0 10   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 7   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 1  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 4   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 0   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 24   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 22   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 20   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+        row-gpios = <&gpio0 6   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 17  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
                     <&gpio0 8   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 17   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+                    <&gpio0 20  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 22  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 24  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 0   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 4   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 6   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 1   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 2   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio1 7   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 9   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                    <&gpio0 10  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
-        // col-gpios = <&gpio1 11  GPIO_ACTIVE_HIGH>,
-        //             <&gpio1 13  GPIO_ACTIVE_HIGH>,
-        //             <&gpio1 15  GPIO_ACTIVE_HIGH>,
-        //             <&gpio0 2   GPIO_ACTIVE_HIGH>,
-        //             <&gpio0 29  GPIO_ACTIVE_HIGH>;
-
-        col-gpios = <&gpio0 29  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 15  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 13   (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-                    <&gpio1 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        col-gpios = <&gpio1 11  GPIO_ACTIVE_HIGH>,
+                    <&gpio1 13  GPIO_ACTIVE_HIGH>,
+                    <&gpio1 15  GPIO_ACTIVE_HIGH>,
+                    <&gpio0 2   GPIO_ACTIVE_HIGH>,
+                    <&gpio0 29  GPIO_ACTIVE_HIGH>;
 
         diode-direction = "col2row";
 
@@ -56,7 +33,7 @@
         debounce-release-ms = <5>;
     };
 
-    default_transform1: keymap_transform0 {
+    default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <15>;
         rows = <5>;
@@ -69,21 +46,10 @@
         >;
     };
 
-    //&physical_layout0 {
-    //     //kscan = <&kscan0>; // Label of the kscan node this layout uses
-    //    transform = <&default_transform1>; // Label of the matrix transform this layout uses
-    //};
-
-    // physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
-    //     compatible = "zmk,physical-layout";
-    //     display-name = "Default layout";
-    //     kscan = <&kscan1>; // Label of the kscan node, optional if all layouts use the same
-    //     transform = <&default_transform1>; // Label of the matrix transform for this layout
+    // chosen {
+    //     // zmk,physical-layout = &physical_layout0;
+    //     zmk,kscan = &kscan1;
+    //     zmk,matrix-transform = &default_transform1;
     // };
-
-    chosen {
-        // zmk,physical-layout = &physical_layout0;
-        zmk,kscan = &kscan1;
-        zmk,matrix-transform = &default_transform1;
-    };
 };
+
