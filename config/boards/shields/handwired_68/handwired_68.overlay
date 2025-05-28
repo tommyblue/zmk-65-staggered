@@ -1,0 +1,27 @@
+/ {
+    matrix {
+        compatible = "zmk,matrix";
+        col2row;
+        diode-direction = COL2ROW;
+        col-gpios = < &gpio1 15 GPIO_ACTIVE_HIGH >,  /* 111 */
+                     < &gpio1 13 GPIO_ACTIVE_HIGH >,  /* 113 */
+                     < &gpio1 11 GPIO_ACTIVE_HIGH >,  /* 115 */
+                     < &gpio0 2 GPIO_ACTIVE_HIGH >,   /* 2 */
+                     < &gpio0 29 GPIO_ACTIVE_HIGH >;  /* 29 */
+        row-gpios = < &gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 20 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 22 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio3 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,   /* 100 */
+                     < &gpio0 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio3 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,   /* 104 */
+                     < &gpio3 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,  /* 106 */
+                     < &gpio3 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,   /* 101 */
+                     < &gpio3 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,   /* 102 */
+                     < &gpio3 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,  /* 107 */
+                     < &gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >,
+                     < &gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW) >;
+    };
+};
