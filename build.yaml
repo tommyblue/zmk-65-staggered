@@ -20,4 +20,5 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: handwired_68
+    shield:
+    snippet: zmk-usb-logging
