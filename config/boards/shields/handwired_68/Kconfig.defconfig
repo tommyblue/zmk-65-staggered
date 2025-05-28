@@ -1,0 +1,4 @@
+if SHIELD_HANDWIRED_68
+config ZMK_KEYBOARD_NAME
+    default "handwired_68"
+endif

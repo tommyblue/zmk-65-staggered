@@ -1,3 +1,0 @@
-&gpio3 {
-    status = "okay";
-};

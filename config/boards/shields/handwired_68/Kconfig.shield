@@ -1,0 +1,12 @@
+# Custom shield config (optional)
+menu "Handwired 68 Shield Configuration"
+
+config SHIELD_HANDWIRED_68
+    bool "Enable handwired 68 keyboard"
+    default y
+
+# Add other config options here if needed
+# config MY_CUSTOM_OPTION
+#     bool "Enable custom thing"
+
+endmenu

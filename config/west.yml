@@ -11,3 +11,5 @@ manifest:
       import: app/west.yml
   self:
     path: config
+  defaults:
+    remote: zmkfirmware
