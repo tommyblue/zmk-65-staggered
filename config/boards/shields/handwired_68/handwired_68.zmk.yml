@@ -1,0 +1,6 @@
+file_format: "1"
+id: handwired_68
+name: Tommy68
+type: shield
+url: https://github.com/tommyblue/zmk-65-staggered/
+requires: [nice_nano_v2]
